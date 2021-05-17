@@ -19,7 +19,7 @@ for p,r in PINS.items():
 
 parser = argparse.ArgumentParser(description='Activate a numbered relay for some amount of time')
 parser.add_argument('--relay', dest='relay', type=int, choices=[1,2,3], required=True, help="The Relay number to activate")
-parser.add_argument('--seconds', dest='seconds', type=int, required=True, help="Time in seconds for the relay to be \"On\"")
+parser.add_argument('--seconds', dest='seconds', type=float, required=True, help="Time in seconds for the relay to be \"On\"")
 parser.format_help()
 try:
   args = parser.parse_args()
