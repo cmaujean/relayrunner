@@ -7,16 +7,15 @@ import warnings
 import RPi.GPIO as GPIO
 
 PINS = {
-  1: 21,
+  1: 26,
   2: 20,
-  3: 26,
+  3: 21,
 }
 
 # Prepare the relays
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(20, GPIO.OUT)
-GPIO.setup(21, GPIO.OUT)
-GPIO.setup(26, GPIO.OUT)
+for p,r in PINS.items():
+  GPIO.setup(r, GPIO.OUT)
 
 parser = argparse.ArgumentParser(description='Activate a numbered relay for some amount of time')
 parser.add_argument('--relay', dest='relay', type=int, choices=[1,2,3], required=True, help="The Relay number to activate")
